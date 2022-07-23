@@ -65,5 +65,44 @@ public class Borrow_a_book_test {
 	public void theErrorrMessageeIsGiven(String string) {
 	    
 	}
+	
+	@Given("a book with code {string} is in the library")
+	public void aBookWithCodeIsInTheLibrary(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+	@Given("a user is registered with the library")
+	public void aUserIsRegisteredWithTheLibrary() {
+	    // Write code here that turns the phrase above into concrete actions
+	 
+	}
+	@When("the user borrows the book with code {string}")
+	public void theUserBorrowsTheBookWithCode(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+	@When("{int} days have passed")
+	public void daysHavePassed(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	  
+	}
+	@Then("the book with code {string} is not borrowed by the user")
+	public void theBookWithCodeIsNotBorrowedByTheUser(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	   
+	}
+	
+	@Then("the user has to pay a fine of {int} NIS")
+	public void theUserHasToPayAFineOfNIS(Integer int1) {
+	    // Write code here that turns the phrase above into concrete actions
+	  
+	}
+	@When("the user returns the book with code {string}")
+	public void theUserReturnsTheBookWithCode(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	  
+	}
+
+	
 
 }   

@@ -22,6 +22,7 @@ public class register_a_user_test {
 	}
 	@When("the user is registered to the library")
 	public void TheUserIsRegisteredToTheLibrary() {
+		
 		user1.addUser("11924313", "Jehad Nael", "jeh@gmail.com", "Sebastia street", "A26HW3", "Sebastia");	
 	}
 	

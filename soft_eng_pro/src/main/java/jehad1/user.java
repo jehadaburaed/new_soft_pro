@@ -3,7 +3,7 @@ package jehad1;
 import java.util.*;
 
 public class user {
-	jehad1.admin_user admin_user  = new jehad1.admin_user();
+	jehad1.admin_user admin  = new jehad1.admin_user();
 	String ID;
 	String name;
 	String email;
