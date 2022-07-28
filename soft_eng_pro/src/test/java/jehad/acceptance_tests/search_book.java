@@ -7,12 +7,12 @@ import io.cucumber.java.en.When;
 
 public class search_book {
 	
-	jehad1.admin_user admin_user ;
-	jehad1.books book ;
+	jehad.Admin admin ;
+	jehad.Books book ;
 	public search_book() {
 		
-		 admin_user = new jehad1.admin_user();
-		book  =new jehad1.books() ;
+		 admin = new jehad.Admin();
+		book  =new jehad.Books() ;
 
 		
 	}
@@ -20,12 +20,15 @@ public class search_book {
 	
 	@Given("these books are contained in the library")
 	public void theseBooksAreContainedInTheLibrary(io.cucumber.datatable.DataTable dataTable) {
-		admin_user.the_Login("adminadmin");
-		book.adding_book( "XP Programming Book",  "Kent Beck", "Kent99");
-		 book.adding_book( "C++ Development",  "Alu and Sami", "Alu07");
-		 book.adding_book( "Cucumber Java",  "Seb Rose", "Rose54");
-		 book.adding_book( "programming C++",  "Deitel", "Deitel4");
-			admin_user.logout();
+		
+		admin.theLogin("adminadmin");
+		
+		 book.addingBook( "XP Programming Book",  "Kent Beck", "Kent99");
+		 book.addingBook( "C++ Development",  "Alu and Sami", "Alu07");
+		 book.addingBook( "Cucumber Java",  "Seb Rose", "Rose54");
+		 book.addingBook( "programming C++",  "Deitel", "Deitel4");
+		 
+		 admin.logout();
 
 	   
 	}
@@ -45,25 +48,25 @@ public class search_book {
 	@Then("the book with code {string} is found")
 	public void theBookWithCodeIsFound(String string) {
 		
-		assertEquals( book.is_Found() , true );
+		assertEquals( book.isFound() , true );
 	   
 	}
 	
 	@Then("no books are found")
 	public void noBooksAreFound() {
-		book  = new jehad1.books() ;
+		book  = new jehad.Books() ;
 		book.search("Sofa");
 		
-		assertEquals( book.is_Found() , false );
+		assertEquals( book.isFound() , false );
 	}
 	
 	@Then("the books with code {string} and {string} are found")
 	public void theBooksWithCodeAndAreFound(String string, String string2) {
-		book  = new jehad1.books() ;
-		book.adding_book( "programming C++",  "Deitel", "Deitel4");
-		 book.adding_book( "C++ Development",  "Alu and Sami", "Alu07");
+		book  = new jehad.Books() ;
+		book.addingBook( "programming C++",  "Deitel", "Deitel4");
+		 book.addingBook( "C++ Development",  "Alu and Sami", "Alu07");
 		 book.search("C++");
-		assertEquals( book.is_Found() , true );
+		assertEquals( book.isFound() , true );
 	}
 
 } 

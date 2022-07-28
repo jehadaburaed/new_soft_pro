@@ -9,8 +9,8 @@ import io.cucumber.java.en.When;
 
 public class register_a_user_test {
 	
-	jehad1.admin_user admin_user= new jehad1.admin_user(); ;
-	jehad1.user user1= new jehad1.user();	
+	jehad.Admin admin= new jehad.Admin(); ;
+	jehad.User user1= new jehad.User();	
 	
 	public register_a_user_test(){
 		
@@ -18,7 +18,7 @@ public class register_a_user_test {
 	
 	@Given(" the administrator is loggeed in")
 	public void thatTheeAdministratorrIsLoggedIn() {
-		admin_user.the_Login("adminadmin");
+		admin.theLogin("adminadmin");
 	}
 	@When("the user is registered to the library")
 	public void TheUserIsRegisteredToTheLibrary() {
@@ -29,13 +29,13 @@ public class register_a_user_test {
 	@Then("the user with ID {string}, name {string}, email {string},address {string},postal code {string}, and city {string} is registered to the library")
 	public void theUserWithIDNameEmailAddressPostalCodeCityIsRegisteredToTheLibrary(String string, String string2, String string3, String string4, String string5, String string6) {
 		
-		 user1.users_search("11924313");
-		assertTrue( user1.user_Found() );
+		 user1.usersSearch("11924313");
+		assertTrue( user1.userFound() );
 		
 	}
 	@Given("that the administrator is not logged in")
 	public void thatTheAdministratorrIsNotLoggedIn() {
-	admin_user.logout();
+	admin.logout();
 	}
 	@Given("there is a user with  ID {string}, name {string}, email {string},address {string},postal code {string}, and city {string}")
 	public void thereIsAUserWithIDNameEmailAddressPostalCodeAndCity(String string, String string2, String string3, String string4, String string5, String string6) {
@@ -46,7 +46,7 @@ public class register_a_user_test {
 	@Then(" errror message {string} is given")
 	public void theErrorMassageIsGivenn(String string) {
 		
-		admin_user.logout();
+		admin.logout();
 		user1.addUser("11924313", "Jehad Nael", "jeh@gmail.com", "Sebastia street", "A26HW3", "Sebastia");	
 		
 	}

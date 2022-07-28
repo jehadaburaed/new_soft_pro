@@ -7,12 +7,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 public class add_book_test {
 	
-	jehad1.admin_user admin_user;
-	jehad1.books book ;
+	jehad.Admin admin;
+	jehad.Books book ;
 	public add_book_test() {
 		
-		 admin_user = new jehad1.admin_user();
-		book  =new jehad1.books() ;
+		 admin = new jehad.Admin();
+		book  =new jehad.Books() ;
 
 		
 	}
@@ -22,35 +22,35 @@ public class add_book_test {
 	@Given("that the administrator is logged in")
 	public void thatTheAdministratorIsLoggedIn() {
 		
-		admin_user.the_Login("adminadmin");
+		admin.theLogin("adminadmin");
 
 		
 	}
 	
 	@Given("there is a book with title {string}, author {string}, and signature {string}")
 	public void thereIsABookWithTitleAuthorAndSignature(String string, String string2, String string3) {
-		book  = new jehad1.books() ;
-		 book.adding_book( "Head First Java",  "Ali Ahmad",  "Ali99");
+		book  = new jehad.Books() ;
+		 book.addingBook( "Head First Java",  "Ali Ahmad",  "Ali99");
 		
 		
 	}
 	
 	@When("the book is added to the library")
 	public void theBookIsAddedToTheLibrary() {
-		book.is_Exist();
+		book.isExist();
 	   
 	}
 	@Then("the book with title {string}, author {string}, and signature {string} is contained in the library")
 	public void theBookWithTitleAuthorAndSignatureIsContainedInTheLibrary(String string, String string2, String string3) {
-		book  = new jehad1.books() ;
-		 book.adding_book( "Head First Java",  "Ali Ahmad",  "Ali99");
-		assertEquals(book.is_Exist() , false );
+		book  = new jehad.Books() ;
+		 book.addingBook( "Head First Java",  "Ali Ahmad",  "Ali99");
+		assertEquals(book.isExist() , false );
 		 book.search("Ali99");
-		assertEquals( book.is_Found() , true );
+		assertEquals( book.isFound() , true );
 	}
 	@Given("that the administraator is not logged in")
 	public void thatTheAdministratoorIsNotLoggedIn() {
-		admin_user.logout();
+		admin.logout();
 	}
 	@Then("the error messsage {string} is given")
 	public void theErrorMessaggeIsGiven(String string) {
