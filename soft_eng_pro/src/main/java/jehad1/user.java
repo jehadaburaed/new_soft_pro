@@ -16,6 +16,8 @@ public class user {
 	ArrayList<ArrayList> borrowed_books = new ArrayList<ArrayList>();
 	boolean max_borrowed = false;
 	int borrowed_old;
+	int days;
+	int fine;
 	ArrayList<ArrayList> users = new ArrayList<ArrayList>();
 	ArrayList<String> user_def = new ArrayList<String>();
 	boolean user_search = false;
@@ -24,6 +26,7 @@ public class user {
 	boolean str_searched = false;
 	boolean borrowed_successfully = false ;
 	boolean removed = false ;
+	boolean paid = false;
 	String str_Searched = " ";
 	String user_Searched = " ";
 
@@ -205,6 +208,7 @@ public class user {
 		return borrowed_books.size();
 	}
 	public boolean borrowed_successfully() {
+		
 		return borrowed_successfully;
 	}
 
@@ -240,10 +244,23 @@ public class user {
 		 return;
 		}
 	
+	public void pay_fine(int fine) {
+		this.fine = fine;
+		paid = true;
+	}
+	
+	public boolean fine_paid() {
+		return paid;
+	}
+	
 	public boolean is_removed() {
 
 		return removed;
 	
+	}
+	
+	public void update_days(int days) {
+		this.days = days;
 	}
 	
 	

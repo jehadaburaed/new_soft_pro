@@ -56,53 +56,47 @@ public class Borrow_a_book_test {
 
 	@Then("Borrowing completed successfully")
 	public void borrowingCompletedSuccessfully() {
-		assertEquals(user1.borrowed_successfully() , true );
-		
+		assertEquals(user1.borrowed_successfully() , true );		
 	}
 	
 	
 	@Then("the erroor message {string} is given")
 	public void theErrorrMessageeIsGiven(String string) {
-	    
+	    System.out.println(string);
 	}
 	
 	@Given("a book with code {string} is in the library")
 	public void aBookWithCodeIsInTheLibrary(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	   
+	    book.adding_book(string,string,string);	   
 	}
 	@Given("a user is registered with the library")
 	public void aUserIsRegisteredWithTheLibrary() {
-	    // Write code here that turns the phrase above into concrete actions
+	    user1.is_Exist();
 	 
 	}
 	@When("the user borrows the book with code {string}")
 	public void theUserBorrowsTheBookWithCode(String string) {
-	    // Write code here that turns the phrase above into concrete actions
+		user1.users_search("11924313");
+	    user1.add_borrow(string, "11924313");
 	   
 	}
 	@When("{int} days have passed")
 	public void daysHavePassed(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	  
+	    user1.update_days(int1);	  
 	}
 	@Then("the book with code {string} is not borrowed by the user")
 	public void theBookWithCodeIsNotBorrowedByTheUser(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	   
+		book.search(string);
+	    assertTrue(book.is_Found());
 	}
 	
 	@Then("the user has to pay a fine of {int} NIS")
 	public void theUserHasToPayAFineOfNIS(Integer int1) {
-	    // Write code here that turns the phrase above into concrete actions
-	  
+		user1.pay_fine(int1);
+		assertTrue(user1.fine_paid());		
 	}
 	@When("the user returns the book with code {string}")
 	public void theUserReturnsTheBookWithCode(String string) {
-	    // Write code here that turns the phrase above into concrete actions
-	  
+		user1.return_book(string, "11924313");	  
 	}
-
-	
-
 }   
