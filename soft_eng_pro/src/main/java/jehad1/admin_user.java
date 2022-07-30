@@ -1,21 +1,32 @@
 package jehad1;
 
 public class admin_user {
-	String string = "";
-	public boolean Logged_in() {
-		if ( string == "adminadmin" )
-		return true;
-		else return false;
-	}
+	 private String password ;
+    private boolean loggedin = false;
+    
+    public admin_user(){
+        this.password = "adminadmin";
+    }
 
-	public void the_Login(String strr) {
-		
-		 string=strr;
-	}
+//    public Admin(String password){
+//        this.password = password;
+//    }
 
-	public void logout() {
-		 string="";
-		
-	}
+    public void login(String password){
+            if(this.password.contains(password))
+                this.loggedin = true;
+    }
+
+    public void logout(){
+            this.loggedin = false;
+    }
+
+    public boolean isLoggedin(){
+        return this.loggedin;
+    }
+
+    public boolean isLoggedout(){
+        return !this.loggedin;
+    }
 
 }
