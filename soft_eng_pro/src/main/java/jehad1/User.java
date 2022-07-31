@@ -16,6 +16,7 @@ public class User {
     private String postalCode;
     private String city;
     private boolean logged = false;
+    private boolean borrowing = false;
     private int fine = 0;
     private HashMap<books, DateServer> borrowedBooks = new HashMap<books, DateServer>();
     private HashMap<books, Boolean> finedBooks = new HashMap<books, Boolean>();
@@ -53,9 +54,17 @@ public class User {
     public boolean isLoggedout(){
         return !this.logged;
     }
-
+    
+    public String getEmail() {
+        return this.email;
+    }
+    
     public int getFine() {
         return fine;
+    }
+    
+    public boolean getBorrowing() {
+        return borrowing;
     }
 
     public String getID() {
@@ -79,8 +88,10 @@ public class User {
     public void borrowBook(books book){
 //        if (this.isLoggedin()) {
             if (this.fine == 0) {
-                if(this.borrowedBooks.size() <= MAXBOOKS)
+                if(this.borrowedBooks.size() <= MAXBOOKS) {
                     this.borrowedBooks.put(book, new DateServer());
+                    borrowing = true;
+                }
                 else
                     System.out.println("you can't borrow more than five books");
                 }
