@@ -10,6 +10,6 @@ public class EmailServer {
 	}
 	
 	public void sendEmail(String email, String subject, String body) {
-		
+		System.out.println(subject + ", For " + email + " : " + body);
 	}
 }
