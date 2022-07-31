@@ -25,12 +25,28 @@ public class Borrow_a_book_test {
 
 	@Given("the user has borrowed less than the maximum")
 	public void theUserHasBorrowedLessThanTheMaximum() {
+		books book1 = new books();
+		books book2 = new books();
+		books book3 = new books();
 		
+		user1.borrowBook(book1);
+		user1.borrowBook(book2);
+		user1.borrowBook(book3);
 	}
 
 	@Given("the user has borrowed the maximum number of books")
 	public void theUserHasBorrowedTheMaximumNumberOfBooks() {
+		books book1 = new books();
+		books book2 = new books();
+		books book3 = new books();
+		books book4 = new books();
+		books book5 = new books();
 		
+		user1.borrowBook(book1);
+		user1.borrowBook(book2);
+		user1.borrowBook(book3);
+		user1.borrowBook(book4);
+		user1.borrowBook(book5);
 	}
 
 	@When("the user has borrow a book from the library")
@@ -40,7 +56,7 @@ public class Borrow_a_book_test {
 
 	@Then("Borrowing completed successfully")
 	public void borrowingCompletedSuccessfully() {
-		
+		assertTrue(user1.getBorrowing());
 	}
 	
 	
@@ -68,7 +84,8 @@ public class Borrow_a_book_test {
 	public void daysHavePassed(Integer int1) throws Exception{
 		user1.login();
 		user1.borrowBook(book);
-		DateServer dateserver = mock(DateServer.class);
+		DateServer dateserver = new DateServer();
+//		DateServer dateserver = mock(DateServer.class);
 		dateserver = user1.getBookDate(book);
 		dateserver.advanceDateByDays(int1);
 	}
