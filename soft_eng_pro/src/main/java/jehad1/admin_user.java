@@ -8,9 +8,7 @@ public class admin_user {
         this.password = "adminadmin";
     }
 
-//    public Admin(String password){
-//        this.password = password;
-//    }
+
 
     public void login(String password){
             if(this.password.contains(password))
